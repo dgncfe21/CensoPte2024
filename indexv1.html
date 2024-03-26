@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoreo-Alumbrado</title>
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+
+<body>
+    <div class='poimapbox-sidebar'>
+        <div class='poimapbox-heading'>
+            <h1 class='poimapbox-list-header-h1'>Lamparas</h1>
+        </div>
+        <div id='poimapbox-listings' class='poimapbox-listings'></div>
+    </div>
+    <div id='map' class='poimapbox-map'> </div>
+
+
+    <!-- <div id="map"></div> -->
+
+    <div id="over_map">
+        <div>
+            <span>Lamparas: </span><span id="cars">0</span>
+        </div>
+        <div>
+            <span>Medidores: </span><span id="pedidos">0</span>
+        </div>
+
+    </div>
+
+    <!-- jQuery CDN -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="/__/firebase/7.17.1/firebase-app.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Initialize Firebase -->
+    <!-- <script src="/__/firebase/init.js"></script> -->
+
+    <script src="scripts.js"></script>
+   
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvhXkpjn3NIKaTnuL3X_W-IMty4urq2MA&callback=initMap">
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvhXkpjn3NIKaTnuL3X_W-IMty4urq2MA"></script>
+
+</body>
+
+</html>
