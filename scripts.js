@@ -61,6 +61,29 @@ map.data.setStyle({
   strokeWeight: 2
 });
 
+// Create the location button control
+var locationButton = document.createElement('button');
+locationButton.textContent = 'Ubicacion';
+locationButton.classList.add('custom-map-control-button');
+
+// Register a click event listener on the location button
+locationButton.addEventListener('click', function () {
+  // Try to get the user's location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var userLocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      // Center the map on the user's location
+      map.setCenter(userLocation);
+    });
+  }
+});
+
+// Add the location button control to the map
+map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);	
 //var infowindow = new google.maps.InfoWindow();
 			
 			//map.data.addListener('click', function(event) {
