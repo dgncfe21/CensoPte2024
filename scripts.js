@@ -47,36 +47,34 @@ var position = [25.70430847, -100.51732815]; //lat lon CEID
 
 var datos;
 
-function initMap() {
-    // Google Map Initialization...
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center: new google.maps.LatLng(27.48413098, -99.55785475),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-  
-    // Fetch GeoJSON and load it
-    fetch('https://dgncfe21.github.io/testGeoJsonv1/LP_NUL04520.geojson')
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        // Once the GeoJSON is loaded, add it to the map
-        map.data.addGeoJson(data);
-  
-        // Set the style for the loaded GeoJSON features
-        map.data.setStyle({
-          fillColor: 'red',
-          strokeColor: 'red',
-          strokeWeight: 2
-        });
-      })
-      .catch(function(error) {
-        console.error('Error loading the GeoJSON data: ', error);
-      });
-      // Create the location button control
+function initMap() { // Google Map Initialization... 
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: new google.maps.LatLng(27.48413098, -99.55785475),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    
+    
+    
+    
+    );
+
+    
+
+/////////
+// Load the GeoJSON file
+map.data.loadGeoJson('https://dgncfe21.github.io/testGeoJsonv1/LP_NUL04520.geojson', null, function () {
+  // Set the style for the loaded GeoJSON features
+  map.data.setStyle({
+    fillColor: 'red',
+    strokeColor: 'red',
+    strokeWeight: 2
+  });
+});
+
+// Create the location button control
 var locationButton = document.createElement('button');
-locationButton.textContent = 'Ubicación';
+locationButton.textContent = 'My Location';
 locationButton.classList.add('custom-map-control-button');
 
 // Register a click event listener on the location button
@@ -105,6 +103,22 @@ locationButton.addEventListener('click', function () {
 // Add the location button control to the map
 map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
 }
+//var infowindow = new google.maps.InfoWindow();
+			
+			//map.data.addListener('click', function(event) {
+			//  let ciclo = event.feature.getProperty("CICLO");
+			//  let html = 'CICLO: ' + ciclo; // combine state name with a label
+			//  infowindow.setContent(html); // show the html variable in the infowindow
+			//  infowindow.setPosition(event.latLng); // anchor the infowindow at the marker
+			//  infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)}); // move the infowindow up slightly to the top of the marker icon
+			//  infowindow.open(map);
+			//});
+
+
+
+
+//} //end of map
+
 
 
 
@@ -393,6 +407,8 @@ pedidos_Ref.on('child_removed', function (data) {
     pedidos_count--;
     document.getElementById("pedidos").innerHTML = pedidos_count;
 });
+
+
 
 
 
