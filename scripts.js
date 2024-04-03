@@ -63,14 +63,38 @@ function initMap() { // Google Map Initialization...
 
 /////////
 // Load the GeoJSON file
-map.data.loadGeoJson('https://dgncfe21.github.io/testGeoJsonv1/LP_NUL04520.geojson', null, function () {
-  // Set the style for the loaded GeoJSON features
-  map.data.setStyle({
-    fillColor: 'red',
-    strokeColor: 'red',
-    strokeWeight: 2
+map.data.loadGeoJson('https://dgncfe21.github.io/testGeoJsonv1/revLaredo.geojson', null, function () {
+    // Dynamically set the style for the loaded GeoJSON features
+    map.data.setStyle(function(feature) {
+      // Get the 'CIRCUITO' value for the feature
+      var circuito = feature.getProperty('CIRCUITO');
+      
+      // Define your circuito colors here
+      var circuitoColors = {
+        "CPR04230": "red",
+        "NUL04025": "blue",
+        "CPR04150": "green",
+        "LAP04250" :"#008DDA",
+        "NUL04550" : "#FFC700",
+        "NUL04520" : "#FC6736",
+        "LAO04160" : "#164863",
+        "NUL04430" : "brown",
+        "LAP04130" :"#019267",
+        "FIL43245" :"#190482",
+        "LAP04230" :"#401F71"
+        
+        // Add more circuitos and their corresponding colors as needed
+      };
+
+      // Choose the color based on the circuito, or default to black if not found
+      var color = circuitoColors[circuito] || "black";
+
+      return {
+        strokeColor: color,
+        strokeWeight: 2
+      };
+    });
   });
-});
 
 // Create the location button control
 var locationButton = document.createElement('button');
