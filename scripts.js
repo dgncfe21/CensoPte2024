@@ -55,7 +55,7 @@ function initMap() { // Google Map Initialization...
     });
 
 /////////
-map.data.loadGeoJson('https://dgncfe21.github.io/testGeoJsonv1/fil43245.json');
+map.data.loadGeoJson('https://dgncfe21.github.io/testGeoJsonv1/LP_FIL43245.json');
 map.data.setStyle({
   fillColor: '#FE0000',
   strokeWeight: 2
