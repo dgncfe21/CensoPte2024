@@ -50,7 +50,7 @@ var datos;
 function initMap() { // Google Map Initialization... 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: new google.maps.LatLng(25.70430847, -100.51732815),
+        center: new google.maps.LatLng(27.46809318, -99.54546095),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
